@@ -11,6 +11,8 @@
 
 CekQR adalah aplikasi web statis untuk membaca QR code dari gambar, clipboard, atau kamera perangkat. Aplikasi berjalan langsung di browser tanpa proses instalasi.
 
+🌐 **Demo Aplikasi:** https://stegasecure.netlify.app
+
 ## Fitur
 
 - Upload gambar QR dalam format PNG, JPG, WebP, atau BMP.
