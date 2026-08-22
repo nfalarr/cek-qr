@@ -27,52 +27,20 @@ CekQR adalah aplikasi web statis untuk membaca QR code dari gambar, clipboard, a
 
 ### Pindai dari gambar
 
-1. Buka `index.html` di browser.
-2. Pilih tab **Upload gambar**.
-3. Pilih gambar, seret gambar ke area upload, atau gunakan tombol **Paste gambar**.
-4. Tunggu proses pemindaian selesai.
-5. Salin hasil atau buka tautan apabila tersedia.
+1. Pilih tab **Upload gambar**.
+2. Pilih gambar, seret gambar ke area upload, atau gunakan tombol **Paste gambar**.
+3. Tunggu proses pemindaian selesai.
+4. Salin hasil atau buka tautan apabila tersedia.
 
 ### Pindai dari kamera
 
-1. Buka tab **Kamera**.
+1. Pilih tab **Kamera**.
 2. Klik **Mulai kamera** dan izinkan akses kamera pada browser.
 3. Arahkan kamera ke QR code.
 4. Hasil akan tampil setelah QR code terdeteksi.
-
-## Menjalankan Proyek
-
-Proyek ini tidak membutuhkan instalasi dependensi atau proses build.
-
-1. Clone repository ini.
-2. Buka `index.html` dengan browser, atau jalankan melalui static server lokal.
-
-Contoh dengan VS Code Live Server atau static server pilihan Anda:
-
-```text
-http://localhost:5500
-```
-
-## Struktur Proyek
-
-```text
-CekQR/
-├── index.html     # Struktur halaman
-├── styles.css     # Tampilan responsif dan animasi
-├── app.js         # Upload, clipboard, kamera, dan QR decoding
-└── README.md
-```
 
 ## Catatan
 
 - Fitur kamera memerlukan izin browser dan biasanya lebih stabil melalui `localhost` atau HTTPS.
 - Tombol paste membutuhkan dukungan Clipboard API. Jika tidak tersedia, gunakan `Ctrl + V` setelah menyalin gambar.
 - Riwayat scan disimpan secara lokal di browser dan dapat berbeda pada tiap perangkat atau browser.
-
-## Kredit
-
-Created by [nfalarr](https://github.com/nfalarr)
-
-## Lisensi
-
-Proyek ini menggunakan lisensi MIT.
