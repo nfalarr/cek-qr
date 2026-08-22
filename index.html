@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e35d36">
+  <title>CekQR - Pemindai QR Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">⌗</span>Cek<span>QR</span></a>
+      <span class="site-type">Temukan isi di balik QR</span>
+    </header>
+    <section class="intro">
+      <p class="section-kicker">PEMINDAI QR</p>
+      <h1>Pindai QR, lalu lihat isinya.</h1>
+      <p>Gunakan kamera atau pilih gambar dari perangkat Anda.</p>
+    </section>
+    <nav class="tabs" aria-label="Pilihan pemindaian QR">
+      <button class="tab active" data-tab="upload">Upload gambar</button>
+      <button class="tab" data-tab="camera">Kamera</button>
+      <button class="tab" data-tab="history">Riwayat</button>
+    </nav>
+    <section class="panel active" id="panel-upload">
+      <div class="glass-card dropzone" id="dropzone" role="button" tabindex="0" aria-label="Pilih gambar QR">
+        <input type="file" accept="image/*" id="fileInput">
+        <div class="upload-empty" id="uploadEmpty"><div class="drop-icon" aria-hidden="true"><span></span></div><div class="drop-copy"><h2>Unggah gambar QR</h2><p>Tarik gambar ke sini atau pilih gambar dari perangkat.</p></div><div class="shortcut">Format gambar: PNG, JPG, WebP, dan BMP</div></div>
+        <div class="preview-wrapper" id="previewWrapper"><img id="previewImage" alt="Preview QR"><div class="image-scanning" id="imageScanning"><span>Memeriksa QR code</span></div><button class="remove-image" id="removeImageBtn" type="button" aria-label="Hapus gambar" title="Hapus gambar">×</button></div>
+      </div>
+      <div class="upload-actions"><button class="btn btn-primary" id="browseImageBtn" type="button">Pilih gambar</button><button class="btn btn-outline" id="pasteImageBtn" type="button">Paste gambar</button></div>
+      <div class="result glass-card" id="result-upload">
+        <div class="result-header"><div class="result-status" id="status-upload"><span class="result-status-dot"></span><span id="status-text-upload">Terdeteksi QR code</span></div><div class="result-actions"><button class="icon-btn" id="copyBtn-upload" title="Salin">⧉</button><button class="icon-btn is-hidden" id="openLinkBtn-upload" title="Buka link">↗</button></div></div>
+        <div class="result-body"><div class="result-label">PAYLOAD</div><div class="result-content" id="content-upload"></div></div><div class="result-meta" id="meta-upload"></div>
+      </div>
+    </section>
+    <section class="panel" id="panel-camera">
+      <div class="glass-card camera-container" id="cameraContainer"><div class="camera-placeholder" id="cameraPlaceholder"><span class="camera-icon">⌗</span><p>Siap memindai QR code</p><small>Izinkan akses kamera untuk memulai.</small></div><video id="cameraVideo" playsinline autoplay muted></video><canvas id="cameraCanvas"></canvas><div class="scan-overlay is-hidden" id="scanOverlay"><div class="scan-corners"><span></span></div><div class="scan-line"></div></div></div>
+      <div class="camera-actions"><button class="btn btn-primary" id="cameraStartBtn">Mulai kamera</button></div>
+      <div class="result glass-card" id="result-camera"><div class="result-header"><div class="result-status" id="status-camera"><span class="result-status-dot"></span><span id="status-text-camera">Terdeteksi QR code</span></div><div class="result-actions"><button class="icon-btn" id="copyBtn-camera" title="Salin">⧉</button><button class="icon-btn is-hidden" id="openLinkBtn-camera" title="Buka link">↗</button></div></div><div class="result-body"><div class="result-label">PAYLOAD</div><div class="result-content" id="content-camera"></div></div><div class="result-meta" id="meta-camera"></div></div>
+    </section>
+    <section class="panel" id="panel-history"><div class="history-heading"><span>Riwayat scan</span><small>Hasil scan terbaru</small></div><div id="historyContainer"><div class="history-empty glass-card" id="historyEmpty"><p>Belum ada riwayat scan</p></div><div class="history-list" id="historyList"></div></div></section>
+    <footer><span>&copy; 2026 CekQR</span><span>Created by nfalarr</span></footer>
+  </main>
+  <div class="toast" id="toast"></div><canvas id="decodeCanvas"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
